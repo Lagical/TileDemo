@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BossStats : MonoBehaviour
 {
     [SerializeField] private GameStatus gameStatus;
     [SerializeField] private PlayerAttack playerAttack;
-    [SerializeField] private int hitpoints = 99;
-    [SerializeField] private Text bossHP;
+    [SerializeField] private int hitpoints;
+    [SerializeField] private TextMeshProUGUI bossHP;
 
     void Start()
     {

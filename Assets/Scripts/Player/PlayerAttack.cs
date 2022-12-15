@@ -7,8 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] GameObject[] projectiles;
     [SerializeField] BossStats bossStats;
     private bool attacking = false;
-    private bool alreadyAttacking = false;
-    // Start is called before the first frame update
+
     void Start()
     {
     }

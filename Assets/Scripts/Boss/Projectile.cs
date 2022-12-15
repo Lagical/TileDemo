@@ -22,7 +22,6 @@ public class Projectile : MonoBehaviour
             damage = Random.Range(70, 97);
             hpAfterDmg = playerStats.getHitpoints() - damage;
             playerStats.setHitpoints(hpAfterDmg);
-            Debug.Log("PROJECTILE PUOLELLA " + hpAfterDmg);
             Destroy(gameObject);
         }
     }

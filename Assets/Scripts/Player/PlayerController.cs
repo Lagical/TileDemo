@@ -43,11 +43,11 @@ public class PlayerController : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
         if (CanMove(direction))
         {
             transform.position += (Vector3)direction;
-            StartCoroutine(Example(direction));
+            //StartCoroutine(Example(direction));
         }
     }
 
