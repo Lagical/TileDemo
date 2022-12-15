@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 85788005}
   - component: {fileID: 85788006}
   - component: {fileID: 85788007}
+  - component: {fileID: 85788008}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -210,7 +211,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &85788003
 MonoBehaviour:
@@ -300,6 +301,21 @@ MonoBehaviour:
   gameStatus: {fileID: 1427484153}
   hitpoints: 99
   playerHP: {fileID: 613085926}
+--- !u!114 &85788008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85788000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878e8f6ebcc1c854d960aee302a2ddff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectiles:
+  - {fileID: 1041657640489698767, guid: 7dad66ff0f44f3e418105f69d9792a04, type: 3}
+  bossStats: {fileID: 1209395535}
 --- !u!1 &290530108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,9 +1433,12 @@ GameObject:
   - component: {fileID: 1209395533}
   - component: {fileID: 1209395532}
   - component: {fileID: 1209395534}
+  - component: {fileID: 1209395536}
+  - component: {fileID: 1209395535}
+  - component: {fileID: 1209395537}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1489,7 +1508,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1209395534
 MonoBehaviour:
@@ -1507,6 +1526,69 @@ MonoBehaviour:
   - {fileID: 4744944533860274606, guid: 364a67975e66bed44a428ac66d6c4675, type: 3}
   - {fileID: 7921246527488408022, guid: eee88f0716740b541a70977bdb9e10a8, type: 3}
   - {fileID: 8520368800394913517, guid: 14a8df31dc54297428eeb70a6fc869a5, type: 3}
+--- !u!114 &1209395535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209395531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505b7640a07eca3449a72d3731fd87f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStatus: {fileID: 1427484153}
+  playerAttack: {fileID: 85788008}
+  hitpoints: 250
+  bossHP: {fileID: 644166458}
+--- !u!61 &1209395536
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209395531}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &1209395537
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209395531}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1427484152
 GameObject:
   m_ObjectHideFlags: 0
