@@ -6,12 +6,16 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private Prayers prayers;
+    [SerializeField] private BossAttack bossAttack;
     [SerializeField] private float speed = 3f;
     [SerializeField] private int damage;
     private int hpAfterDmg;
     void Start()
     {
         playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+        prayers = GameObject.Find("OverheadPrayer").GetComponent<Prayers>();
+        bossAttack = GameObject.Find("Boss").GetComponent<BossAttack>();
         target = GameObject.Find("Player");
     }
 
@@ -19,10 +23,28 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            damage = Random.Range(70, 97);
-            hpAfterDmg = playerStats.getHitpoints() - damage;
-            playerStats.setHitpoints(hpAfterDmg);
-            Destroy(gameObject);
+            if(bossAttack.getAttackStyle() == 0 && prayers.getPrayer() == "magic")
+            {
+                damage = 0;
+                Destroy(gameObject);
+            } 
+            else if (bossAttack.getAttackStyle() == 1 && prayers.getPrayer() == "ranged")
+            {
+                damage = 0;
+                Destroy(gameObject);
+            }
+            else if (bossAttack.getAttackStyle() == 2 && prayers.getPrayer() == "melee")
+            {
+                damage = 0;
+                Destroy(gameObject);
+            }
+            else
+            {
+                damage = Random.Range(70, 97);
+                hpAfterDmg = playerStats.getHitpoints() - damage;
+                playerStats.setHitpoints(hpAfterDmg);
+                Destroy(gameObject);
+            }
         }
     }
 

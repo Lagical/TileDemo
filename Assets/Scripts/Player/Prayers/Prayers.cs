@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class Prayers : MonoBehaviour
 {
+    private string activePrayer;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite [] allPrayers;
 
     void Start()
     {
-        
+    }
+    public void protectMagic()
+    {
+        activePrayer = "magic";
+        spriteRenderer.sprite = allPrayers[0];
+    }
+    public void protectRanged()
+    {
+        activePrayer = "ranged";
+        spriteRenderer.sprite = allPrayers[1];
+    }
+    public void protectMelee()
+    {
+        activePrayer = "melee";
+        spriteRenderer.sprite = allPrayers[2];
     }
 
-    private void protectRange()
+    public string getPrayer()
     {
-
-    }
-    private void protectMage()
-    {
-
-    }
-    private void protectMelee()
-    {
-
+        return activePrayer;
     }
 
 

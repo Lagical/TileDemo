@@ -6,6 +6,7 @@ public class BossAttack : MonoBehaviour
 {
 
     [SerializeField] GameObject[] projectiles;
+    private int rand;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,14 @@ public class BossAttack : MonoBehaviour
     {
         while(true){
             yield return new WaitForSeconds(5f);
-            int rand = Random.Range(0, projectiles.Length);
+            rand = Random.Range(0, projectiles.Length);
             Instantiate(projectiles[rand], transform.position, Quaternion.identity);
         }
+    }
+
+    public int getAttackStyle()
+    {
+        return rand;
     }
 
     // Update is called once per frame

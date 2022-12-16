@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 18792877}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 985809860}
+        m_TargetAssemblyTypeName: Prayers, Assembly-CSharp
+        m_MethodName: protectRanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &18792877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1466,7 +1478,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 881874695}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 985809860}
+        m_TargetAssemblyTypeName: Prayers, Assembly-CSharp
+        m_MethodName: protectMagic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &881874695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1515,6 +1539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 985809858}
   - component: {fileID: 985809859}
+  - component: {fileID: 985809860}
   m_Layer: 0
   m_Name: OverheadPrayer
   m_TagString: Untagged
@@ -1578,7 +1603,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e98e88c1b53954642adcebbb406aa7e6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1586,9 +1611,26 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &985809860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985809857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc881ba5d184614caa1054c37098a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 985809859}
+  allPrayers:
+  - {fileID: 21300000, guid: e98e88c1b53954642adcebbb406aa7e6, type: 3}
+  - {fileID: 21300000, guid: b5bd51f2c6569e541a7d2cdbc6ac0db1, type: 3}
+  - {fileID: 21300000, guid: 80f15b7ff267bc7478a31129e14b2743, type: 3}
 --- !u!1 &1209395531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,8 +1733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectiles:
   - {fileID: 4744944533860274606, guid: 364a67975e66bed44a428ac66d6c4675, type: 3}
-  - {fileID: 7921246527488408022, guid: eee88f0716740b541a70977bdb9e10a8, type: 3}
   - {fileID: 8520368800394913517, guid: 14a8df31dc54297428eeb70a6fc869a5, type: 3}
+  - {fileID: 7921246527488408022, guid: eee88f0716740b541a70977bdb9e10a8, type: 3}
 --- !u!114 &1209395535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2198,7 +2240,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1861638298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 985809860}
+        m_TargetAssemblyTypeName: Prayers, Assembly-CSharp
+        m_MethodName: protectMelee
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1861638298
 MonoBehaviour:
   m_ObjectHideFlags: 0
