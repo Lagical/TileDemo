@@ -16,7 +16,11 @@ public class Prayers : MonoBehaviour
     public void protectMagic()
     {
         StopAllCoroutines();
-        if (playerStats.getPrayerpoints() > 0 && activePrayer != "magic")
+        if (activePrayer == "magic")
+        {
+            spriteRenderer.sprite = null;
+            activePrayer = "";
+        } else if (playerStats.getPrayerpoints() > 0 && activePrayer != "magic")
         {
             activePrayer = "magic";
             spriteRenderer.sprite = allPrayers[0];
@@ -26,7 +30,11 @@ public class Prayers : MonoBehaviour
     public void protectRanged()
     {
         StopAllCoroutines();
-        if (playerStats.getPrayerpoints() > 0 && activePrayer != "ranged")
+        if (activePrayer == "ranged")
+        {
+            spriteRenderer.sprite = null;
+            activePrayer = "";
+        } else if (playerStats.getPrayerpoints() > 0 && activePrayer != "ranged")
         {
             activePrayer = "ranged";
             spriteRenderer.sprite = allPrayers[1];
@@ -36,7 +44,11 @@ public class Prayers : MonoBehaviour
     public void protectMelee()
     {
         StopAllCoroutines();
-        if (playerStats.getPrayerpoints() > 0 && activePrayer != "melee")
+        if (activePrayer == "melee")
+        {
+            spriteRenderer.sprite = null;
+            activePrayer = "";
+        } else if (playerStats.getPrayerpoints() > 0 && activePrayer != "melee")
         {
             activePrayer = "melee";
             spriteRenderer.sprite = allPrayers[2];
