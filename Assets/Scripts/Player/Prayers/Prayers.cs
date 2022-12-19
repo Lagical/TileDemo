@@ -4,27 +4,49 @@ using UnityEngine;
 
 public class Prayers : MonoBehaviour
 {
-    private string activePrayer;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    private string activePrayer = "";
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite [] allPrayers;
+    [SerializeField] private PlayerStats playerStats;
+    private int prayerDrain = 2;
 
     void Start()
     {
     }
     public void protectMagic()
     {
-        activePrayer = "magic";
-        spriteRenderer.sprite = allPrayers[0];
+        StopAllCoroutines();
+        if (playerStats.getPrayerpoints() > 0 && activePrayer != "magic")
+        {
+            activePrayer = "magic";
+            spriteRenderer.sprite = allPrayers[0];
+            StartCoroutine(prayerDraining());
+        }
     }
     public void protectRanged()
     {
-        activePrayer = "ranged";
-        spriteRenderer.sprite = allPrayers[1];
+        StopAllCoroutines();
+        if (playerStats.getPrayerpoints() > 0 && activePrayer != "ranged")
+        {
+            activePrayer = "ranged";
+            spriteRenderer.sprite = allPrayers[1];
+            StartCoroutine(prayerDraining());
+        }
     }
     public void protectMelee()
     {
-        activePrayer = "melee";
-        spriteRenderer.sprite = allPrayers[2];
+        StopAllCoroutines();
+        if (playerStats.getPrayerpoints() > 0 && activePrayer != "melee")
+        {
+            activePrayer = "melee";
+            spriteRenderer.sprite = allPrayers[2];
+            StartCoroutine(prayerDraining());
+        }
+    }
+
+    public int getPrayerDrain()
+    {
+        return prayerDrain;
     }
 
     public string getPrayer()
@@ -32,7 +54,14 @@ public class Prayers : MonoBehaviour
         return activePrayer;
     }
 
-
+    private IEnumerator prayerDraining()
+    {
+        while (activePrayer != "")
+        {
+           yield return new WaitForSeconds(1f);
+           playerStats.setPrayerpoints(prayerDrain);
+        }
+    }
 
     void Update()
     {
