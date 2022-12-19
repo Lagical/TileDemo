@@ -10,9 +10,13 @@ public class BossStats : MonoBehaviour
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private int hitpoints;
     [SerializeField] private TextMeshProUGUI bossHP;
-
     void Start()
     {
+    }
+
+    public Vector3 getbossPosition()
+    {
+        return transform.position;
     }
 
     void OnMouseDown()

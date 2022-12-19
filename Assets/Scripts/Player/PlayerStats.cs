@@ -8,7 +8,11 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private GameStatus gameStatus;
     [SerializeField] private int hitpoints = 99;
+    [SerializeField] private int prayerpoints = 99;
+    [SerializeField] private int staminapoints = 99;
     [SerializeField] private TextMeshProUGUI playerHP;
+    [SerializeField] private float attackRange;
+    private Vector3 bossPosition;
 
     void Start()
     {
@@ -17,6 +21,11 @@ public class PlayerStats : MonoBehaviour
     public int getHitpoints()
     {
         return hitpoints;
+    }
+
+    public Vector3 getPlayerPosition()
+    {
+        return transform.position;
     }
 
     public int setHitpoints(int newHitpoints)
