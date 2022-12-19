@@ -50,7 +50,7 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   prayers: {fileID: 0}
   bossAttack: {fileID: 0}
-  speed: 3
+  speed: 7
   damage: 0
 --- !u!212 &8520368800394913519
 SpriteRenderer:
