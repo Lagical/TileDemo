@@ -6,8 +6,9 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] Tilemap ground;
-    [SerializeField] Tilemap wall;
+    [SerializeField] private Tilemap ground;
+    [SerializeField] private Tilemap wall;
+    [SerializeField] private PlayerStats playerStats;
     private PlayerMovement controls;
 
     private void Awake()
@@ -29,13 +30,14 @@ public class PlayerController : MonoBehaviour
         controls.Main.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
     }
 
-    IEnumerator Example(Vector2 direction)
+    IEnumerator AutoMove(Vector2 direction)
     {
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
             if (CanMove(direction))
             {
+                playerStats.setStamina(1);
                 transform.position += (Vector3)direction;
             }
         }
@@ -47,7 +49,8 @@ public class PlayerController : MonoBehaviour
         if (CanMove(direction))
         {
             transform.position += (Vector3)direction;
-            //StartCoroutine(Example(direction));
+            playerStats.setStamina(1);
+            //StartCoroutine(AutoMove(direction));
         }
     }
 

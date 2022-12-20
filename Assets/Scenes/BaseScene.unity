@@ -361,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 2002883550}
   wall: {fileID: 560879601}
+  playerStats: {fileID: 85788007}
 --- !u!61 &85788004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2027,6 +2028,7 @@ MonoBehaviour:
   playerAttack: {fileID: 85788008}
   hitpoints: 250
   bossHP: {fileID: 1280996438}
+  cursor: {fileID: 2800000, guid: 54b9597e4d0ee754da40897d4b0e1bb6, type: 3}
 --- !u!61 &1209395536
 BoxCollider2D:
   m_ObjectHideFlags: 0

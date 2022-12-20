@@ -10,6 +10,7 @@ public class BossStats : MonoBehaviour
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private int hitpoints;
     [SerializeField] private TextMeshProUGUI bossHP;
+    [SerializeField] private Texture2D cursor;
     void Start()
     {
     }
@@ -23,6 +24,16 @@ public class BossStats : MonoBehaviour
     {
         playerAttack.tryToAttack();
     }
+
+    private void OnMouseEnter()
+    {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+    }
+    private void OnMouseExit()
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+
 
     public int getHitpoints()
     {
