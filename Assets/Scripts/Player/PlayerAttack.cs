@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] GameObject[] projectiles;
     [SerializeField] BossStats bossStats;
+    [SerializeField] SpriteRenderer attackRangeIndicator;
     private bool attacking = false;
     private bool attackingLoop = false;
     private float distanceBetween;
@@ -23,6 +24,10 @@ public class PlayerAttack : MonoBehaviour
     public void tryToAttack()
     {
         distanceBetween = Vector3.Distance(transform.position, bossStats.getbossPosition());
+        if(distanceBetween > 8)
+        {
+            StartCoroutine(rangeIndicator());
+        }
         if (attacking == false && distanceBetween < 8)
         {
             attackingLoop = true;
@@ -30,6 +35,13 @@ public class PlayerAttack : MonoBehaviour
             distanceBetweenLoop = Vector3.Distance(transform.position, bossStats.getbossPosition());
             StartCoroutine(Attack());
         }
+    }
+
+    private IEnumerator rangeIndicator()
+    {
+        attackRangeIndicator.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        attackRangeIndicator.enabled = false;
     }
 
     private IEnumerator Attack()
