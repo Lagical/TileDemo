@@ -10,7 +10,7 @@ public class BossAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Attack());
+        StartCoroutine(Attack());
     }
 
     private IEnumerator Attack()
