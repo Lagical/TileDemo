@@ -49,8 +49,6 @@ public class PlayerAttack : MonoBehaviour
         while (bossStats.getHitpoints()>1 && attackingLoop == true && distanceBetweenLoop < 8)
         {
             distanceBetweenLoop = Vector3.Distance(transform.position, bossStats.getbossPosition());
-            int rand1 = Random.Range(0, projectiles.Length);
-            Instantiate(projectiles[rand1], transform.position, Quaternion.identity);
             yield return new WaitForSeconds(2.5f);
             distanceBetweenLoop = Vector3.Distance(transform.position, bossStats.getbossPosition());
             if (distanceBetweenLoop < 8)

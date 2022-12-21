@@ -11,6 +11,7 @@ public class BossStats : MonoBehaviour
     [SerializeField] private int hitpoints;
     [SerializeField] private TextMeshProUGUI bossHP;
     [SerializeField] private Texture2D cursor;
+    [SerializeField] private Collider2D bossCollider;
     void Start()
     {
     }
@@ -34,6 +35,10 @@ public class BossStats : MonoBehaviour
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
+    public bool checkPosition(Transform testi)
+    {
+        return bossCollider.bounds.Contains(testi.position);
+    }
 
     public int getHitpoints()
     {

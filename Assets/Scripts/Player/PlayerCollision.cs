@@ -9,21 +9,16 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Damage"))
         {
-            DamagePlayer();
+            //DamagePlayer();
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Damage"))
+        if (collision.gameObject.CompareTag("Boss"))
         {
-            DamagePlayer();
+            //bossCol = true;
         }
-    }
-
-    private void DamagePlayer()
-    {
-        Debug.Log("hit!");
     }
 
 }

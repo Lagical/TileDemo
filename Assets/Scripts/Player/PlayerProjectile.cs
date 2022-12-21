@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerProjectile : MonoBehaviour
 {
@@ -8,20 +9,26 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private BossStats bossStats;
     [SerializeField] private float speed = 3f;
     [SerializeField] private int damage;
+    [SerializeField] private TextMeshPro hitsplash;
     private int hpAfterDmg;
     void Start()
     {
         bossStats = GameObject.Find("Boss").GetComponent<BossStats>();
         target = GameObject.Find("Boss");
+        hitsplash = GameObject.Find("Hitsplash").GetComponent<TextMeshPro>();
+        hitsplash.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Boss"))
         {
+            hitsplash.gameObject.SetActive(true);
             damage = Random.Range(0, 15);
             hpAfterDmg = bossStats.getHitpoints() - damage;
             bossStats.setHitpoints(hpAfterDmg);
+            Debug.Log(damage);
+            hitsplash.text = "-"+damage.ToString();
             Destroy(gameObject);
         }
     }
