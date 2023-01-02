@@ -10,10 +10,12 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private float speed = 3f;
     [SerializeField] private int damage;
     [SerializeField] private TextMeshPro hitsplash;
+    private HealthBar bossHB;
     private int hpAfterDmg;
     void Start()
     {
         bossStats = GameObject.Find("Boss").GetComponent<BossStats>();
+        bossHB = GameObject.Find("BossHB").GetComponent<HealthBar>();
         target = GameObject.Find("Boss");
         hitsplash = GameObject.Find("Hitsplash").GetComponent<TextMeshPro>();
         hitsplash.gameObject.SetActive(false);
@@ -27,6 +29,7 @@ public class PlayerProjectile : MonoBehaviour
             damage = Random.Range(0, 15);
             hpAfterDmg = bossStats.getHitpoints() - damage;
             bossStats.setHitpoints(hpAfterDmg);
+            bossHB.setHealthBar(damage);
             Debug.Log(damage);
             hitsplash.text = "-"+damage.ToString();
             Destroy(gameObject);
