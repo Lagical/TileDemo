@@ -16,8 +16,8 @@ public class Minion : MonoBehaviour
     [SerializeField] protected private float playerInteractionTime = 2f;  // Sekunteina
     [SerializeField] protected private int healPower = 5;
     [SerializeField] private PlayerAttack playerAttack;
+    [SerializeField] private Texture2D cursor;
 
-    private Texture2D cursor;
     private float lastInteractionTime = 0f;
     private bool beingAttacked = false;
     private GameObject ground;
