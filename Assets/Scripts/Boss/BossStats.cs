@@ -12,6 +12,8 @@ public class BossStats : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bossHP;
     [SerializeField] private Texture2D cursor;
     [SerializeField] private Collider2D bossCollider;
+    [SerializeField] private BossMinionSpawner spawner;
+    private bool spawned = false;
     void Start()
     {
     }
@@ -23,7 +25,7 @@ public class BossStats : MonoBehaviour
 
     void OnMouseDown()
     {
-        playerAttack.tryToAttack();
+        playerAttack.tryToAttack(transform.position);
     }
 
     private void OnMouseEnter()
@@ -56,6 +58,11 @@ public class BossStats : MonoBehaviour
         if (hitpoints < 1)
         {
             gameStatus.Restart();
+        }
+        if(hitpoints < 150 && spawned == false)
+        {
+            spawner.spawnHealers();
+            spawned = true;
         }
     }
 }

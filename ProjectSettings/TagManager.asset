@@ -8,6 +8,9 @@ TagManager:
   - Damage
   - Boss
   - Wall
+  - Healer
+  - Ground
+  - Minion
   layers:
   - Default
   - TransparentFX

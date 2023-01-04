@@ -9,7 +9,8 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private BossStats bossStats;
     [SerializeField] private float speed = 3f;
     [SerializeField] private int damage;
-    [SerializeField] private TextMeshPro hitsplash;
+    [SerializeField] private TextMeshPro hitsplash, hitsplashMinion;
+    [SerializeField] private Minion minion;                         
     private HealthBar bossHB;
     private int hpAfterDmg;
     void Start()
@@ -18,20 +19,28 @@ public class PlayerProjectile : MonoBehaviour
         bossHB = GameObject.Find("BossHB").GetComponent<HealthBar>();
         target = GameObject.Find("Boss");
         hitsplash = GameObject.Find("Hitsplash").GetComponent<TextMeshPro>();
+        hitsplash = GameObject.Find("HitsplashMinion").GetComponent<TextMeshPro>();
+        hitsplashMinion.gameObject.SetActive(false);
         hitsplash.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        damage = Random.Range(0, 15);
         if (collision.gameObject.CompareTag("Boss"))
         {
             hitsplash.gameObject.SetActive(true);
-            damage = Random.Range(0, 15);
             hpAfterDmg = bossStats.getHitpoints() - damage;
             bossStats.setHitpoints(hpAfterDmg);
             bossHB.setHealthBar(damage);
-            Debug.Log(damage);
             hitsplash.text = "-"+damage.ToString();
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Healer"))
+        {
+            minion = GameObject.Find("Healer").GetComponent<Minion>();
+            minion.HitMinion(damage);
+            hitsplashMinion.text = "-" + damage.ToString();
             Destroy(gameObject);
         }
     }

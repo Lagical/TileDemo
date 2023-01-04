@@ -21,9 +21,9 @@ public class PlayerAttack : MonoBehaviour
     {
     }
 
-    public void tryToAttack()
+    public void tryToAttack(Vector3 targetPosition)
     {
-        distanceBetween = Vector3.Distance(transform.position, bossStats.getbossPosition());
+        distanceBetween = Vector3.Distance(transform.position, targetPosition);
         if(distanceBetween > 8)
         {
             StartCoroutine(rangeIndicator());
@@ -32,8 +32,8 @@ public class PlayerAttack : MonoBehaviour
         {
             attackingLoop = true;
             attacking = true;
-            distanceBetweenLoop = Vector3.Distance(transform.position, bossStats.getbossPosition());
-            StartCoroutine(Attack());
+            distanceBetweenLoop = Vector3.Distance(transform.position, targetPosition);
+            StartCoroutine(Attack(targetPosition));
         }
     }
 
@@ -44,13 +44,13 @@ public class PlayerAttack : MonoBehaviour
         attackRangeIndicator.enabled = false;
     }
 
-    private IEnumerator Attack()
+    private IEnumerator Attack(Vector3 targetPosition)
     {
         while (bossStats.getHitpoints()>1 && attackingLoop == true && distanceBetweenLoop < 8)
         {
-            distanceBetweenLoop = Vector3.Distance(transform.position, bossStats.getbossPosition());
+            distanceBetweenLoop = Vector3.Distance(transform.position, targetPosition);
             yield return new WaitForSeconds(2.5f);
-            distanceBetweenLoop = Vector3.Distance(transform.position, bossStats.getbossPosition());
+            distanceBetweenLoop = Vector3.Distance(transform.position, targetPosition);
             if (distanceBetweenLoop < 8)
             {
                 int rand = Random.Range(0, projectiles.Length);
