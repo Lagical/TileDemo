@@ -8,7 +8,7 @@ public class Prayers : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite [] allPrayers;
     [SerializeField] private PlayerStats playerStats;
-    private int prayerDrain = 2;
+    private int prayerDrain = 1;
 
     void Start()
     {

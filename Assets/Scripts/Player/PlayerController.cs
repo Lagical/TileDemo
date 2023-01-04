@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
-            if (CanMove(direction))
+            if (CanMove(direction) && playerStats.getStamina() > 0)
             {
                 playerStats.setStamina(1);
                 transform.position += (Vector3)direction;
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private void Move(Vector2 direction)
     {
         //StopAllCoroutines();
-        if (CanMove(direction))
+        if (CanMove(direction) && playerStats.getStamina() > 0)
         {
             transform.position += (Vector3)direction;
             playerStats.setStamina(1);
